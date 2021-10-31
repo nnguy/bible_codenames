@@ -1,0 +1,156 @@
+<html>
+<head>
+    <style>
+    table{
+        table-layout:auto;
+        border: 5px solid red; 
+        width:800px; 
+        height:500px;
+        border-spacing:5px;  
+    }
+    td{
+        border: 2px solid red;
+        text-align: center; 
+        vertical-align: middle; 
+        padding:2px;
+        font-family:'Courier New', Courier, monospace;
+        font-weight:bold;
+        font-size:x-large;
+    }
+    .center{
+        margin-left: auto; 
+        margin-right: auto; 
+    }
+    html, body {
+        width: 100%;
+        height:100%;
+    }
+    .center_image{
+        text-align: center;
+    }
+    body {
+        background: linear-gradient(-45deg, #ff0059, #fd438a, #ff5e00, #ffc320);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    </style>
+<title>Biblical Codenames!</title>
+
+
+</head>
+
+<body>
+    <center><img src = "./logo.png" class = "center_image"></center>
+    <br><br>
+    <!--crimson for red, dodgerblue for blue, antiquewhite for neutral, black-->
+    <table class = "center" id = "output_table">
+        <tr>
+            <td onclick="this.style.backgroundImage='url(./b_agent7.jpg)';"></td> 
+            <td onclick="this.style.backgroundImage='url(./b_agent1.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./r_agent9.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./civilian7.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./b_agent6.jpg)';"></td>
+        </tr>
+        <tr>
+            <td onclick="this.style.backgroundImage='url(./civilian1.jpg)';"></td> 
+            <td onclick="this.style.backgroundImage='url(./r_agent7.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./r_agent1.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./b_agent8.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./r_agent6.jpg)';"></td>
+        </tr>
+        <tr>
+            <td onclick="this.style.backgroundImage='url(./r_agent8.jpg)';"></td> 
+            <td onclick="this.style.backgroundImage='url(./civilian6.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./r_agent3.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./civilian8.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./civilian3.jpg)';"></td>
+        </tr>
+        <tr>
+            <td onclick="this.style.backgroundImage='url(./b_agent3.jpg)';"></td> 
+            <td onclick="this.style.backgroundImage='url(./assassin.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./r_agent2.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./r_agent4.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./b_agent2.jpg)';"></td>
+        </tr>
+        <tr>
+            <td onclick="this.style.backgroundImage='url(./b_agent4.jpg)';"></td> 
+            <td onclick="this.style.backgroundImage='url(./b_agent5.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./civilian2.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./r_agent5.jpg)';"></td>
+            <td onclick="this.style.backgroundImage='url(./civilian5.jpg)';"></td>
+        </tr>
+    </table>
+    <script>
+        var i,j; 
+        //input array 
+        var input = ['Adversity', 'Ambition', 'Angels', 'Anger', 'Anxiety', 'Baptism', 'Beauty', 'Belief', 'Bereavement', 'Birth', 'Blessing', 'Brokenhearted', 'Change', 'Children', 'Christmas', 'Church', 'Comfort', 'Communion', 'Compassion', 'Confidence', 'Contentment', 'Courage', 'Creation', 'Death', 'Demons', 'Depression', 'Despair', 'Determination', 'Divorce', 'Doubt', 'Easter', 'Encouragement', 'End Times', 'Enemies', 'Evangelism', 'Faith', 'Faithfuless', 'Family', 'Fathers', 'Fear', 'Fellowship', 'Forgiveness', 'Freedom', 'Friendship', 'Generosity', 'Gentleness', 'Goodness', 'Gods Power', 'Gods Will', 'Gossip', 'Grace', 'Grief', 'Guidance', 'Hard Times', 'Hard Work', 'Healing', 'Heaven', 'Hell', 'Helpfulness', 'Hope', 'Humility', 'Integrity', 'Jealousy', 'Joy', 'Judgment', 'Justice', 'Knowledge', 'Life', 'Loneliness', 'Love', 'Lust', 'Marriage', 'Mercy', 'Misery', 'Mission', 'Money', 'Mothers', 'Obedience', 'Oppression', 'Pain', 'Parents', 'Patience', 'Peace', 'Perseverance', 'Poverty', 'Power', 'Prayer', 'Pride', 'Protection', 'Purity', 'Reconciliation', 'Regret', 'Relationships', 'Repentance', 'Respect', 'Rest', 'Righteousness', 'Salvation', 'Serving', 'Sick', 'Sin', 'Strength', 'Stress', 'Struggle', 'Success', 'Temper', 'Temptation', 'Thanksgiving', 'To Live By', 'Tolerance', 'Trials', 'Trust', 'Truth', 'Unity', 'Violence', 'Wisdom', 'Women', 'Worry', 'Worship']
+
+        //output array
+        var output = [['a','b','c','d','e'],['f','g','h','i','j'],['k','l','m','n','o'],['p','q','r','s','t'],['u','v','w','x','y']]; 
+
+        //shuffle the input array 
+        var m = input.length, t, i; 
+        while(m){
+            //Pick a remaining element 
+            i = Math.floor(Math.random() * m--); 
+
+            //Swap it with the current element 
+            t = input[m]; 
+            input[m] = input[i]; 
+            input[i] = t; 
+        }
+
+        //store the randomized input into output array 
+        var row = 5, column = 5, inputnum = 0; 
+        for (i = 0; i < row; i++){
+            for(j = 0; j < column; j++){
+                output[i][j] = input[inputnum];
+                inputnum++;
+            }
+        }
+
+        //storing the output array to the table 
+        table = document.getElementById("output_table"); 
+        for(i = 0; i <= table.rows.length; i++){
+            for(j = 0; j < table.rows[i].cells.length; j++){
+                table.rows[i].cells[j].innerHTML=output[i][j];
+            }
+        }
+</script>
+<br><br>
+<h3>Rules for <b>Codemasters</b></h3>
+<ol>
+    <li>Access the board <a href = "./board1.jpg" target = "_blank">here</a></li>
+    <li>The border color of the cards determines which team goes first.</li>
+    <li>Help your team correctly select your 8 codewords using hints!</li>
+    <li>You can't communicate with your team in any other way!</li>
+    <li>Hints consist of:
+        <ul>
+            <li>One word that is related to your codewords (you can't use any part of the codeword as a hint!)</li>
+            <li>The number of words on the board that are connected to your word</li>
+        </ul>
+    </li>
+</ol>
+
+<h3>Rules for <b>Operatives</b> (everybody else)</h3>
+<ol>
+    <li>Use your Codemaster's clue to figure out which words on the board are your codewords!</li>
+    <li>If you choose the civilian's codewords or the opponent's codewords, your turn ends!</li>
+    <li>If you choose the assassin's codeword, the other team wins!</li>
+</ol>
+<br><br>
+
+</body>
+</html> 
